@@ -1,17 +1,31 @@
-# Job Tracker App
+# 🗂️ Job Tracker App
 
-A simple job application tracker built with vanilla HTML, CSS, and JavaScript.
+Track job applications with status and notes. Built with **HTML, CSS, and JavaScript**.
 
-## Features
-- Add, view, and delete job applications
-- Track job status (Applied, Interviewing, Offer, Rejected)
-- Save data to localStorage
-- Filter by status
+🔗 **Live Demo:** https://comfy-swan-4aa8be.netlify.app  
+📦 **Source:** https://github.com/Ayan-Dini1/Job-tracker-app
 
-## How to Use
-Open `index.html` in your browser.
+---
 
-## Future Ideas
-- Add editing functionality
-- Persist data using Firebase
-- User login/authentication
+## ✨ Features
+- Add, edit, and delete job applications
+- Track status (e.g., Applied, Interview, Offer, Rejected)
+- Stores data in **localStorage**
+- Responsive, clean UI
+
+## 🛠 Tech Stack
+- HTML5, CSS3, JavaScript (ES6+)
+- LocalStorage for persistence
+
+## 📸 Screenshot
+*(Add a screenshot named `screenshot.png` in the repo and uncomment below)*  
+<!-- ![Job Tracker Screenshot](./screenshot.png) -->
+
+## ▶️ Run Locally
+```bash
+# clone
+git clone https://github.com/Ayan-Dini1/Job-tracker-app.git
+cd Job-tracker-app
+
+# open
+# double-click index.html (or use a simple HTTP server)
