@@ -1,8 +1,5 @@
-// ============================
-// Job Tracker - app.js
-// ============================
 
-// ---- storage helpers ----
+
 const KEY = "jobs";
 const $ = (id) => document.getElementById(id);
 
@@ -12,11 +9,11 @@ const load = () => {
 };
 const save = (data) => localStorage.setItem(KEY, JSON.stringify(data));
 
-// ---- state ----
-let jobs = load();                 // [{ id, position, company, status, notes, createdAt }]
+//  state 
+let jobs = load();                 
 let editingId = null;
 
-// ---- elements ----
+// elements 
 const form       = $("jobForm");
 const submitBtn  = $("submitBtn") || form?.querySelector("[type=submit]");
 const positionEl = $("position");
@@ -32,7 +29,7 @@ const countsEl   = $("counts");
 const yearEl     = $("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ---- form: clear/reset ----
+// form: clear/reset 
 $("clearForm")?.addEventListener("click", () => {
   editingId = null;
   form?.reset();
@@ -40,7 +37,7 @@ $("clearForm")?.addEventListener("click", () => {
   positionEl?.focus();
 });
 
-// ---- form: submit (add or update) ----
+//  form: submit (add or update)
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -108,7 +105,7 @@ $("clearAll")?.addEventListener("click", () => {
   }
 });
 
-// ---- render ----
+// render 
 function render() {
   if (!listEl) return;
 
