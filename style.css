@@ -1,36 +1,131 @@
-:root{
-  --bg:#0f0f11; --fg:#f6f7f8; --muted:#b9bdc2;
-  --card:#16181b; --border:#262a2f; --accent:#eaeaea;
-  --green:#2ecc71; --red:#ff6b6b;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--fg);
-  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
-.head h1{margin:0 0 6px;font-size:36px}
-.muted{color:var(--muted)}
-.row{display:flex;gap:10px;align-items:center}
-.wrap-controls{flex-wrap:wrap}
-.inline{display:flex;gap:6px;align-items:center}
-.inline span{color:var(--muted);font-size:12px}
-.grow{flex:1}
+/* ===========================
+   Job Tracker – Dark Theme
+   =========================== */
 
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:16px 0}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-label span{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
-input,select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#111316;color:var(--fg)}
-button{padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:#15171a;color:var(--fg);cursor:pointer}
-button:hover{background:#1a1d21}
-button.primary{border-color:#2c3238;background:#1e2328}
-button.danger{border-color:#3a2020;background:#221718;color:#ffdede}
-.list{display:grid;gap:10px;margin-top:12px}
-.job-entry{border:1px solid var(--border);border-radius:12px;padding:12px;background:#13161a}
-.job-header{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.job-meta{color:var(--muted);font-size:12px}
-.badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:2px 8px;font-size:12px;margin-left:8px;color:var(--accent)}
-.buttons button{margin-right:6px}
-.foot{margin-top:28px;border-top:1px solid var(--border);padding-top:12px;display:flex;gap:12px;flex-wrap:wrap}
-.foot a{color:var(--fg);text-decoration:none;border-bottom:1px dashed var(--border)}
-.foot a:hover{border-bottom-color:var(--fg)}
-@media (max-width:520px){.head h1{font-size:30px}}
+:root{
+  --bg:#0f0f11;
+  --fg:#f6f7f8;
+  --muted:#b9bdc2;
+
+  --card:#16181b;
+  --border:#262a2f;
+  --accent:#eaeaea;
+
+  --green:#2ecc71;
+  --red:#ff6b6b;
+}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* Layout */
+.wrap{ max-width:980px; margin:0 auto; padding:28px 18px 60px }
+.head h1{ margin:0 0 6px; font-size:36px }
+.muted{ color:var(--muted) }
+.row{ display:flex; gap:10px; align-items:center }
+.wrap-controls{ flex-wrap:wrap }
+.inline{ display:flex; gap:6px; align-items:center }
+.inline span{ color:var(--muted); font-size:12px }
+.grow{ flex:1 }
+
+/* Cards & form */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:16px 0;
+}
+.grid2{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px }
+label span{ display:block; color:var(--muted); font-size:12px; margin-bottom:4px }
+
+input,select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#111316;
+  color:var(--fg);
+}
+
+/* Buttons */
+button{
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#15171a;
+  color:var(--fg);
+  cursor:pointer;
+  transition: transform .02s ease;
+}
+button:hover{ background:#1a1d21 }
+button:active{ transform: translateY(0.5px) }
+button.primary{ border-color:#2c3238; background:#1e2328 }
+button.danger{ border-color:#3a2020; background:#221718; color:#ffdede }
+
+/* Accessible focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+
+/* List */
+.list{ display:grid; gap:10px; margin-top:12px }
+.job-entry{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  background:#13161a;
+}
+.job-header{ display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap }
+.job-meta{ color:var(--muted); font-size:12px }
+
+/* Status badge */
+.badge{
+  display:inline-block;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:2px 8px;
+  font-size:12px;
+  margin-left:8px;
+  color:var(--accent);
+}
+
+/* Color-coded badges (set via data-status) */
+.badge[data-status="Applied"]    { border-color:#3a6ea5; color:#cfe2ff; }
+.badge[data-status="Interview"]  { border-color:#b38600; color:#ffe9a3; }
+.badge[data-status="Offer"]      { border-color:var(--green); color:#d8ffe9; }
+.badge[data-status="Rejected"]   { border-color:var(--red);   color:#ffdede; }
+
+.buttons button{ margin-right:6px }
+
+/* Footer */
+.foot{
+  margin-top:28px;
+  border-top:1px solid var(--border);
+  padding-top:12px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.foot a{
+  color:var(--fg);
+  text-decoration:none;
+  border-bottom:1px dashed var(--border);
+}
+.foot a:hover{ border-bottom-color:var(--fg) }
+
+/* Responsive */
+@media (max-width:520px){
+  .head h1{ font-size:30px }
+}
